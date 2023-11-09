@@ -3,7 +3,7 @@ import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <nav>
+  <nav class="w-full text-sm text-center lg:text-left lg:text-base">
     <RouterLink to="/">Home</RouterLink>
     <RouterLink to="/about">About</RouterLink>
     <a href="https://github.com/nazhard/github-user-finder"
@@ -14,14 +14,8 @@ import { RouterLink } from 'vue-router'
 </template>
 
 <style scoped>
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
 nav a.router-link-exact-active {
-  color: var(--color-text);
+  color: hsl(215, 13.8%, 34.1%);
 }
 nav a.router-link-exact-active:hover {
   background-color: transparent;
@@ -33,14 +27,5 @@ nav a {
 }
 nav a:first-of-type {
   border: 0;
-}
-@media (min-width: 1024px) {
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
 }
 </style>
