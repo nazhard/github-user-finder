@@ -17,7 +17,7 @@ fetch(`https://api.github.com/users/${uId}/repos?per_page=5&sort=last_update`)
   .then(data => repos.value = data);
 
 const followers = ref(0)
-fetch(`https://api.github.com/users/${uId}/followers`)
+fetch(`https://api.github.com/users/${uId}/followers?per_page=15`)
   .then(response => response.json())
   .then(data => followers.value = data);
 </script>
@@ -46,10 +46,10 @@ fetch(`https://api.github.com/users/${uId}/followers`)
           </a>
         </li>
         <li>
-          <a :href="`https://${users.blog}`">{{users.blog}}</a>
+          <a :href="`https://${users.blog}`">{{users.blog || null}}</a>
         </li>
       </ul>
-      <p>{{users.location}}</p>
+      <p>{{users.location || null}}</p>
       <p>{{users.followers + ' followers' }} • {{users.following + ' following'}}</p>
       <p>{{users.public_repos + " public repos"}}</p>
     </div>
@@ -72,7 +72,7 @@ fetch(`https://api.github.com/users/${uId}/followers`)
       </div>
     </div>
     
-    <div class="my-5 px-3 shadow-md md:col-span-2">
+    <div class="my-5 px-2 shadow-md md:col-span-2">
       <h2 class="text-2xl my-3">Followers</h2>
       <div v-for="f in followers" class="inline-block mx-1.5">
         <a class="hover:bg-white" :href="f.html_url">

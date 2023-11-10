@@ -27,7 +27,8 @@ export default {
   },
   methods: {
     submit(){
-      this.$router.push("/users/"+this.search);
+//      this.$router.push("/users/"+this.search);
+      this.$router.push({ path: '/search', query: { q: this.search } });
     }
   }
 }
