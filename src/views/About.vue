@@ -11,7 +11,8 @@ fetch('https://api.github.com/repos/nazhard/github-user-finder')
 <template>
   <div class="about mx-10 my-2">
     <h1 class="text-3xl my-3">GUFF</h1>
-    <p>A simple github user finder.
+    <p class="mb-2">
+      A simple github user finder.
        This project is just to learn about how Vuejs works.</p>
     <EmbedCard
       :title="repo.full_name"

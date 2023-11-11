@@ -2,13 +2,13 @@
   <form class="relative max-w-2xl">
     <input
       type="text"
-      name="search"
+      name="q"
       v-model="search"
       class="w-full outline-none border-0 border-b-2 shadow p-2"
     >
     <button
       type="submit"
-      @click.stop.prevent="submit()"
+      @click="submit()"
       class="absolute right-5 w-5"
     >
       <svg xmlns="http://www.w3.org/2000/svg" class="h-auto w-10" viewBox="0 0 20 20">
@@ -22,12 +22,12 @@
 export default {
   data(){
     return {
-      search : null
+      search: null
     }
   },
   methods: {
     submit(){
-      this.$router.push("/users/"+this.search);
+      this.$router.replace({ path: '/search', query: { q: this.search } });
     }
   }
 }
