@@ -9,17 +9,21 @@ fetch('https://api.github.com/repos/nazhard/github-user-finder')
 </script>
 
 <template>
-  <div class="about mx-10 my-2">
-    <h1 class="text-3xl my-3">GUFF</h1>
-    <p class="mb-2">
-      A simple github user finder.
-       This project is just to learn about how Vuejs works.</p>
-    <EmbedCard
-      :title="repo.full_name"
-      :stars="repo.stargazers_count"
-      :lang="repo.language"
-      :url="repo.html_url"
-      :desc="repo.description"
-    />
+  <div mx-7 my-2 grid md:grid-cols-2>
+    <div>
+      <h1 text-3xl my3>GUFF</h1>
+      <p>A simple github user finder.
+         This project is just to learn about how Vuejs works.</p>
+    </div>
+    
+    <div>
+      <EmbedCard
+        :title="repo.full_name"
+        :stars="repo.stargazers_count"
+        :lang="repo.language"
+        :url="repo.html_url"
+        :desc="repo.description"
+      />
+    </div>
   </div>
 </template>
