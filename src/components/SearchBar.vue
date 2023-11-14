@@ -5,6 +5,7 @@
       name="q"
       v-model="search"
       w-full outline-none border0 shadow-md p2
+      bg-transparent
     >
     <button
       type="submit"

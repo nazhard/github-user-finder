@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'
-import EmbedCard from '../components/RepodEmbed.vue'
+import EmbedCard from '../components/RepoEmbedCard.vue'
 
 const route = useRoute()
 let uId = route.params.u
@@ -22,11 +22,19 @@ const orgs = ref(0)
 fetch(`https://api.github.com/users/${uId}/orgs`)
   .then(response => response.json())
   .then(data => orgs.value = data);
+
+//function onlyBlog() {
+//  if (users.blog && !users.twitter_username) {
+//    document.classList.add('top-1');
+//  } else {
+//    document.classList.add('top-8');
+//  }
+//}
 </script>
 
 <template>
   <!-- Header -->
-  <div grid grid-cols-1 md:grid-cols-3 w-full px7 py3 shadow-md>
+  <div grid grid-cols-1 md:grid-cols-3 w-full px7 py3 bg-zinc-50 shadow-md>
     <div>
       <img
         :src="users.avatar_url"
@@ -47,7 +55,7 @@ fetch(`https://api.github.com/users/${uId}/orgs`)
           <p w-fit ml4 md:ml5>{{ '@' + users.twitter_username }}</p>
         </a>
         <a v-if="users.blog" :href="`https://${users.blog}`">
-          <div i-tabler:link absolute top-7 md:top-8></div>
+          <div i-tabler:link absolute></div>
           <p w-fit ml4 md:ml5>{{ 'https://' + users.blog }}</p>
         </a>
       </div>
@@ -59,7 +67,7 @@ fetch(`https://api.github.com/users/${uId}/orgs`)
   
   <!--- Main Body -->
   <main grid grid-cols-1 md:grid-cols-5>
-    <div my5 px3 md:col-span-3>
+    <div my5 px3 md:col-span-3 bg-zinc-50 shadow-md>
       <a text-sm :href="`${users.html_url}?tab=repositories`">
         <h2 text-2xl my-3>Repository</h2>
       </a>
@@ -74,7 +82,7 @@ fetch(`https://api.github.com/users/${uId}/orgs`)
       </div>
     </div>
     
-    <div my-5 px-2 shadow-md border-t-2 md:col-span-2>
+    <div my5 px2 border-t-2 md:col-span-2 bg-zinc-50 shadow-md>
       <h2 text-2xl my3>Followers</h2>
       <div v-for="f in followers" class="inline-block mx-1.5">
         <a hover:bg-white :href="f.html_url">
